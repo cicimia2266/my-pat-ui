@@ -26,7 +26,8 @@ export type IconColor =
   | 'pink'
   | 'brown'
   | 'grey'
-  | 'black';
+  | 'black'
+  | 'white';
 
 // export enum IconRotated {
 //   Clockwise = 'clockwise',

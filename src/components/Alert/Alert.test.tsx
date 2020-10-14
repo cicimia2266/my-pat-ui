@@ -20,4 +20,27 @@ describe('Alert', ()=>{
         expect(getByTestId('alert-element')).toHaveClass('alert alert-error alert-lg');
         expect(getByTestId('alert-element')).not.toHaveClass('alert-sm');
     })
+    it('should render alert with title', ()=>{
+        const alertProps: patAlertProps={
+            alertSeverity: 'warning',
+            alertSize: 'sm',
+            alertTitle: 'Huge Warning',
+        }
+        const {getByTestId, getByText} = render(<Alert {...alertProps}>This is an alert with title.</Alert>);
+        expect(getByTestId('alert-element')).toHaveClass('alert alert-warning alert-sm');
+        expect(getByText('This is an alert with title.')).toBeInTheDocument();
+    })
+    it('should render alert with close button', ()=>{
+        const alertProps: patAlertProps={
+            alertSeverity: 'info',
+            alertTitle: 'Huge Info',
+            onClose: true,
+        }
+        const {getByTestId} = render(<Alert {...alertProps}>This is an alert with dismiss feature.</Alert>);
+        expect(getByTestId('alert-element')).toHaveClass('alert alert-info');
+        expect(getByTestId('dismiss-element')).toHaveClass('dismiss');
+        expect(getByTestId('alert-element')).not.toHaveClass('on-close');
+        fireEvent.click(getByTestId('dismiss-element'));
+        expect(getByTestId('alert-element')).toHaveClass('on-close');
+    })
 })

@@ -1,6 +1,7 @@
 .alert{
     position: relative;
-    display: block;
+    display: flex;
+    justify-content: space-between;
     font-weight: $alert-font-weight;
     line-height: $alert-line-height;
     border: $alert-border-width solid transparent;
@@ -45,4 +46,12 @@
 
 .alert-success{
     @include alert-style($alert-success, $alert-success-light, $alert-success-light);
+}
+
+.on-close{
+    display: none;
+}
+
+.dismiss{
+    cursor: pointer;
 }
