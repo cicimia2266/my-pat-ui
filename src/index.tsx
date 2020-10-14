@@ -3,3 +3,5 @@ export { default as Input } from './components/Input';
 export { default as Icon } from './components/Icon';
 export { default as Card } from './components/Card';
 export { default as Dropdown } from './components/Dropdown';
+export { default as Alert } from './components/Alert';
+
