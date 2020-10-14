@@ -1,0 +1,48 @@
+.alert{
+    position: relative;
+    display: block;
+    font-weight: $alert-font-weight;
+    line-height: $alert-line-height;
+    border: $alert-border-width solid transparent;
+    @include alert-size(
+        $alert-padding-y,
+        $alert-padding-x,
+        $alert-font-size,
+        $alert-border-radius
+    );
+}
+
+.alert-lg{
+    @include alert-size(
+        $alert-padding-y-lg,
+        $alert-padding-x-lg,
+        $alert-font-size-lg,
+        $alert-border-radius-lg
+    )
+
+}
+
+.alert-sm{
+    @include alert-size(
+        $alert-padding-y-sm,
+        $alert-padding-x-sm,
+        $alert-font-size-sm,
+        $alert-border-radius-sm
+    )
+}
+
+.alert-error{
+    @include alert-style($alert-error, $alert-error-light, $alert-error-light);
+}
+
+.alert-warning{
+    @include alert-style($alert-warning, $alert-warning-light, $alert-warning-light);
+}
+
+.alert-info{
+    @include alert-style($alert-info, $alert-info-light, $alert-info-light);
+}
+
+.alert-success{
+    @include alert-style($alert-success, $alert-success-light, $alert-success-light);
+}
