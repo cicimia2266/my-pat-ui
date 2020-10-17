@@ -24,7 +24,6 @@ describe('Alert', ()=>{
         const alertProps: patAlertProps={
             alertSeverity: 'warning',
             alertSize: 'sm',
-            alertTitle: 'Huge Warning',
         }
         const {getByTestId, getByText} = render(<Alert {...alertProps}>This is an alert with title.</Alert>);
         expect(getByTestId('alert-element')).toHaveClass('alert alert-warning alert-sm');
@@ -33,7 +32,6 @@ describe('Alert', ()=>{
     it('should render alert with close button', ()=>{
         const alertProps: patAlertProps={
             alertSeverity: 'info',
-            alertTitle: 'Huge Info',
             onClose: true,
         }
         const {getByTestId} = render(<Alert {...alertProps}>This is an alert with dismiss feature.</Alert>);
@@ -43,4 +41,5 @@ describe('Alert', ()=>{
         fireEvent.click(getByTestId('dismiss-element'));
         expect(getByTestId('alert-element')).toHaveClass('on-close');
     })
+    
 })
