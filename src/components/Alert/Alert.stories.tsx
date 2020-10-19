@@ -110,7 +110,7 @@ export const AlertWithIcon = () => (
 export const AlertCustomization = () => (
   <div>
     <Alert
-      alertSeverity={'error'}
+      onClose={action('Alert closed.')}
       style={{
         position: 'fixed',
         top: '0',
@@ -125,6 +125,12 @@ export const AlertCustomization = () => (
     </Alert>
     <Alert onClose={action('Alert closed.')} className="custom-css">
     This is an alert message created with user customized styles by <strong>specifying a custom css stylesheet</strong>.
+    </Alert>
+    <Alert>
+    This is an alert message created with user customized button. If user would like to have the button appear in a new line, the button should be placed within a div component and styled accordingly.
+    <div style={{display: 'flex', justifyContent: 'center'}}>
+        <Button>Accept the warning</Button>
+        <Button>Cancel the warning</Button></div>
     </Alert>
   </div>
 );
