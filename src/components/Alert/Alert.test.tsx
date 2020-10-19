@@ -32,7 +32,7 @@ describe('Alert', ()=>{
     it('should render alert with close button', ()=>{
         const alertProps: patAlertProps={
             alertSeverity: 'info',
-            onClose: true,
+            onClose: ()=>{},
         }
         const {getByTestId} = render(<Alert {...alertProps}>This is an alert with dismiss feature.</Alert>);
         expect(getByTestId('alert-element')).toHaveClass('alert alert-info');
@@ -41,5 +41,5 @@ describe('Alert', ()=>{
         fireEvent.click(getByTestId('dismiss-element'));
         expect(getByTestId('alert-element')).toHaveClass('on-close');
     })
-    
+
 })

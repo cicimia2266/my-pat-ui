@@ -12,6 +12,14 @@ export interface IAlertTitleProps {
 export type patAlertTitleProps = IAlertTitleProps &
   HTMLAttributes<HTMLDivElement>;
 
+
+/**
+ * An AlertTitle component could be imported within Alert component if user wants to add a alert title.
+ *
+ * ```js
+ * import {AlertTitle} from 'pat-ui'
+ * ```
+ */  
 const AlertTitle: FC<patAlertTitleProps> = (props) => {
   const { className, alertTitleType, children, ...rest } = props;
   let alertTitle;

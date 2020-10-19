@@ -11,7 +11,7 @@ export interface IAlertProps {
   /** set alert severity */
   alertSeverity?: AlertSeverity;
   /** set click onClose button */
-  onClose?: boolean;
+  onClose?: ()=>void;
   /** set duration in milliseconds*/
   duration?: number;
   /** set customized style */
@@ -25,6 +25,12 @@ export type patAlertProps = IAlertProps & HTMLAttributes<HTMLDivElement>;
  *
  * ```js
  * import {Alert} from 'pat-ui'
+ * ```
+ * 
+ * An AlertTitle component could be imported within Alert component if user wants to add a alert title.
+ *
+ * ```js
+ * import {AlertTitle} from 'pat-ui'
  * ```
  */
 export const Alert: FC<patAlertProps> = (props) => {
@@ -56,6 +62,7 @@ export const Alert: FC<patAlertProps> = (props) => {
 
   const handleDelete = () => {
     setDismiss(true);
+    onClose && onClose();
   };
 
   //To adjust the close icon size based on alert size

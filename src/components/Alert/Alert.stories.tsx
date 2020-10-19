@@ -1,8 +1,10 @@
 import React from 'react';
-// import { action } from '@storybook/addon-actions';
+import { action } from '@storybook/addon-actions';
 import Alert from './Alert';
 import Icon from '../Icon';
 import AlertTitle from './AlertTitle';
+import Button from '../Button';
+import './AlertCustomCss.scss';
 
 export default {
   title: 'Alert',
@@ -13,13 +15,6 @@ const alertStyle: React.CSSProperties = {
   marginTop: '5px',
 };
 
-/**
- * An Alert displays a short, important message to attract the user's attention.
- *
- * ```js
- * import {Alert} from 'pat-ui'
- * ```
- */
 export const DefaultAlert = () => (
   <div>
     <Alert alertSeverity={'error'} style={alertStyle}>
@@ -74,16 +69,16 @@ export const AlertWithTitle = () => (
 
 export const AlertWithDismiss = () => (
   <div>
-    <Alert alertSeverity={'error'} onClose={true} style={alertStyle}>
+    <Alert alertSeverity={'error'} onClose={action('Error Alert closed.')} style={alertStyle}>
       This is an error alert message with dismiss feature.
     </Alert>
-    <Alert alertSeverity={'warning'} onClose={true} style={alertStyle}>
+    <Alert alertSeverity={'warning'} onClose={action('Warning Alert closed.')} style={alertStyle}>
       This is a warning alert message with dismiss feature.
     </Alert>
-    <Alert alertSeverity={'info'} onClose={true} style={alertStyle}>
+    <Alert alertSeverity={'info'} onClose={action('Info Alert closed.')} style={alertStyle}>
       This is an info alert message with dismiss feature.
     </Alert>
-    <Alert alertSeverity={'success'} onClose={true} style={alertStyle}>
+    <Alert alertSeverity={'success'} onClose={action('Success Alert closed.')} style={alertStyle}>
     <AlertTitle alertTitleType={'bold'}>Success</AlertTitle>
       This is a success alert message with dismiss feature.
     </Alert>
@@ -92,20 +87,20 @@ export const AlertWithDismiss = () => (
 
 export const AlertWithIcon = () => (
   <div>
-    <Alert alertSeverity={'error'} onClose={true} style={alertStyle}>
+    <Alert alertSeverity={'error'} onClose={action('Error Alert closed.')} style={alertStyle}>
       <Icon name="heart" size="tiny" color="red"></Icon>
       This is an error alert message with dismiss feature.
     </Alert>
-    <Alert alertSeverity={'warning'} onClose={true} style={alertStyle}>
+    <Alert alertSeverity={'warning'} onClose={action('Warning Alert closed.')} style={alertStyle}>
       <Icon name="home" size="tiny" color="orange"></Icon>
       This is a warning alert message with dismiss feature.
     </Alert>
-    <Alert alertSeverity={'info'} onClose={true} style={alertStyle}>
+    <Alert alertSeverity={'info'} onClose={action('Info Alert closed.')} style={alertStyle}>
       <Icon name="spinner" size="tiny" color="grey" loading></Icon>
       This is an info alert message with dismiss feature.
     </Alert>
 
-    <Alert alertSeverity={'success'} onClose={true} style={alertStyle}>
+    <Alert alertSeverity={'success'} onClose={action('Success Alert closed.')} style={alertStyle}>
     <Icon name="check" size="tiny" color="green"></Icon>
       This is a success alert message with dismiss feature.
     </Alert>
@@ -116,7 +111,6 @@ export const AlertCustomization = () => (
   <div>
     <Alert
       alertSeverity={'error'}
-      onClose={true}
       style={{
         position: 'fixed',
         top: '0',
@@ -129,7 +123,7 @@ export const AlertCustomization = () => (
     >
       This is an alert message created with user customized styles by <strong>passing style prop to Alert component</strong>.
     </Alert>
-    <Alert onClose={true} className="custom-css">
+    <Alert onClose={action('Alert closed.')} className="custom-css">
     This is an alert message created with user customized styles by <strong>specifying a custom css stylesheet</strong>.
     </Alert>
   </div>
@@ -146,7 +140,7 @@ export const AutoDisappearAlert = () => (
       <Alert alertSeverity={'info'} duration={9000} style={alertStyle}>
       This alert will disappear in 9000 milliseconds.
       </Alert>
-      <Alert alertSeverity={'success'} duration={12000} onClose={true} style={alertStyle}>
+      <Alert alertSeverity={'success'} duration={12000} onClose={action('Alert closed.')} style={alertStyle}>
       This alert will disappear in 12000 milliseconds.
       </Alert>
     </div>
